@@ -1,0 +1,61 @@
+{
+  "npmScope": "nitro3",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "home": {
+      "tags": []
+    },
+    "home-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "home"
+      ]
+    },
+    "browse": {
+      "tags": []
+    },
+    "browse-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "browse"
+      ]
+    },
+    "checkout": {
+      "tags": []
+    },
+    "checkout-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "checkout"
+      ]
+    },
+    "graph-ql": {
+      "tags": []
+    }
+  }
+}

@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  home:
+    image: home
+    build: ./
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+
+  browse:
+    image: browse
+    build: ./
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 80:80

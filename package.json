@@ -5,6 +5,8 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
+    "serve-home": "nx serve home --port=4200",
+    "serve-browse": "nx serve browse --port=4201",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
@@ -23,17 +25,24 @@
     "update": "nx migrate latest",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "bd": "docker build -f Dockerfile-local -t nitro3 .",
+    "bd-home": "docker build -f apps/home/Dockerfile -t home .",
+    "bd-browse": "docker build -f apps/home/Dockerfile -t browse .",
+    "rd": "docker run --add-host localnode:$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')  -p 80:80 nitro3"
   },
   "private": true,
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "document-register-element": "1.13.1",
     "emotion-server": "10.0.27",
     "next": "9.5.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-router-dom": "5.2.0"
   },
   "devDependencies": {
     "@nrwl/workspace": "10.2.1",
@@ -72,6 +81,7 @@
     "@babel/preset-react": "7.9.4",
     "babel-jest": "26.2.2",
     "@emotion/babel-preset-css-prop": "10.0.27",
-    "@nrwl/node": "10.2.1"
+    "@nrwl/node": "10.2.1",
+    "@types/react-router-dom": "5.1.5"
   }
 }

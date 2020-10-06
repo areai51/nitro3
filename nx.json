@@ -17,12 +17,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -32,29 +27,39 @@
     },
     "home-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "home"
-      ]
+      "implicitDependencies": ["home"]
     },
     "browse": {
       "tags": []
     },
     "browse-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "browse"
-      ]
+      "implicitDependencies": ["browse"]
     },
     "checkout": {
       "tags": []
     },
     "checkout-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "checkout"
-      ]
+      "implicitDependencies": ["checkout"]
     },
     "graph-ql": {
+      "tags": []
+    },
+    "components": {
+      "tags": []
+    },
+    "account": {
+      "tags": []
+    },
+    "account-e2e": {
+      "tags": [],
+      "implicitDependencies": ["account"]
+    },
+    "ui-kit": {
+      "tags": []
+    },
+    "templates": {
       "tags": []
     }
   }

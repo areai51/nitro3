@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nitro3/components": ["libs/components/src/index.ts"],
+      "@nitro3/ui-kit": ["libs/ui-kit/src/index.ts"],
+      "@nitro3/templates": ["libs/templates/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -44,10 +44,7 @@
               "apps/home/tsconfig.json",
               "apps/home/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/home/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/home/**/*"]
           }
         },
         "test": {
@@ -81,13 +78,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/home-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/home-e2e/**/*"
-            ]
+            "tsConfig": ["apps/home-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/home-e2e/**/*"]
           }
         }
       }
@@ -135,10 +127,7 @@
               "apps/browse/tsconfig.json",
               "apps/browse/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/browse/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/browse/**/*"]
           }
         },
         "test": {
@@ -172,13 +161,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/browse-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/browse-e2e/**/*"
-            ]
+            "tsConfig": ["apps/browse-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/browse-e2e/**/*"]
           }
         }
       }
@@ -226,10 +210,7 @@
               "apps/checkout/tsconfig.json",
               "apps/checkout/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/checkout/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/checkout/**/*"]
           }
         },
         "test": {
@@ -263,13 +244,8 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": [
-              "apps/checkout-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/checkout-e2e/**/*"
-            ]
+            "tsConfig": ["apps/checkout-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/checkout-e2e/**/*"]
           }
         }
       }
@@ -287,9 +263,7 @@
             "outputPath": "dist/apps/graph-ql",
             "main": "apps/graph-ql/src/main.ts",
             "tsConfig": "apps/graph-ql/tsconfig.app.json",
-            "assets": [
-              "apps/graph-ql/src/assets"
-            ]
+            "assets": ["apps/graph-ql/src/assets"]
           },
           "configurations": {
             "production": {
@@ -319,16 +293,197 @@
               "apps/graph-ql/tsconfig.app.json",
               "apps/graph-ql/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/graph-ql/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/graph-ql/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/graph-ql/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "components": {
+      "root": "libs/components",
+      "sourceRoot": "libs/components/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/components/tsconfig.lib.json",
+              "libs/components/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/components/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "account": {
+      "root": "apps/account",
+      "sourceRoot": "apps/account/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/account",
+            "index": "apps/account/src/index.html",
+            "main": "apps/account/src/main.tsx",
+            "polyfills": "apps/account/src/polyfills.ts",
+            "tsConfig": "apps/account/tsconfig.app.json",
+            "assets": [
+              "apps/account/src/favicon.ico",
+              "apps/account/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/account/src/environments/environment.ts",
+                  "with": "apps/account/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "account:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "account:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/account/tsconfig.app.json",
+              "apps/account/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/account/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/account/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "account-e2e": {
+      "root": "apps/account-e2e",
+      "sourceRoot": "apps/account-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/account-e2e/cypress.json",
+            "tsConfig": "apps/account-e2e/tsconfig.e2e.json",
+            "devServerTarget": "account:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "account:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": ["apps/account-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/account-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "ui-kit": {
+      "root": "libs/ui-kit",
+      "sourceRoot": "libs/ui-kit/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/ui-kit/tsconfig.lib.json",
+              "libs/ui-kit/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-kit/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-kit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "templates": {
+      "root": "libs/templates",
+      "sourceRoot": "libs/templates/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/templates/tsconfig.lib.json",
+              "libs/templates/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/templates/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/templates/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -341,7 +496,16 @@
   "schematics": {
     "@nrwl/react": {
       "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint",
         "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
       }
     },
     "@nrwl/next": {

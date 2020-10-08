@@ -52,16 +52,6 @@ export const Index = () => {
         description="Nitro3 is the 3rd Generation of Microfrontends."
         image="images/nitro-banner.jpg"
       />
-      <Container className={classes.cardGrid} maxWidth="md">
-        {/* End hero unit */}
-        <Grid container spacing={4}>
-          {ProductMock.map((product, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <ProductCard product={product} />
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
     </Layout>
   );
 };

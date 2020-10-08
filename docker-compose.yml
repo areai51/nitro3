@@ -13,7 +13,9 @@ services:
 
   browse:
     image: browse
-    build: ./apps/browse/Dockerfile
+    build:
+      dockerfile: ./apps/browse/Dockerfile
+      context: .
     environment:
       NODE_ENV: production
     ports:

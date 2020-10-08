@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Header, Nav } from '@nitro3/components';
+import { Header } from '@nitro3/components';
 
 const useStyles = makeStyles({
   container: {
@@ -29,10 +29,6 @@ export const Master = (props: MasterLayoutProps) => {
   const classes = useStyles();
   const [navOpen, setNavOpen] = useState(false);
 
-  const handleNavToggle = () => {
-    navOpen ? setNavOpen(false) : setNavOpen(true);
-  };
-
   return (
     <div>
       <Head>
@@ -41,8 +37,7 @@ export const Master = (props: MasterLayoutProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <CssBaseline />
-      <Header navOpen={navOpen} handleNavToggle={handleNavToggle} />
-      <Nav navOpen={navOpen} handleNavToggle={handleNavToggle} />
+      <Header />
       <main className={classes.container}>{props.children}</main>
 
       <footer className={classes.footer}>&copy; Copyright 2020 Nitro3</footer>

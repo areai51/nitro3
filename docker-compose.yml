@@ -1,23 +1,29 @@
-version: '3.4'
+version: '3.8'
 
 services:
   home:
     image: home
-    build: ./
+    build:
+      context: .
+      dockerfile: Dockerfile-home
     environment:
       NODE_ENV: production
     ports:
-      - 3000:3000
+      - 4200:4200
 
   browse:
     image: browse
-    build: ./
+    build:
+      context: .
+      dockerfile: Dockerfile-browse
     environment:
       NODE_ENV: production
     ports:
-      - 3000:3000
+      - 4201:4201
 
   nginx:
-    build: ./nginx
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
     ports:
       - 80:80

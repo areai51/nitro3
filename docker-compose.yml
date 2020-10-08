@@ -1,11 +1,13 @@
 version: '3.8'
 
 services:
+  build-apps:
+    command:
   home:
     image: home
     build:
       context: .
-      dockerfile: Dockerfile-home
+      dockerfile: /apps/home/Dockerfile
     environment:
       NODE_ENV: production
     ports:
@@ -15,7 +17,7 @@ services:
     image: browse
     build:
       context: .
-      dockerfile: Dockerfile-browse
+      dockerfile: /apps/browse/Dockerfile
     environment:
       NODE_ENV: production
     ports:
@@ -23,7 +25,7 @@ services:
 
   nginx:
     build:
-      context: ./nginx
-      dockerfile: Dockerfile-nginx
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 80:80

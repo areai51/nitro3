@@ -21,4 +21,4 @@ COPY ./dist/apps/home/ ./
 
 EXPOSE 3001
 
-CMD [ "yarn", "next", "start" ]
+CMD [ "yarn", "next", "start", "-p", "3001" ]

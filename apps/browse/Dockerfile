@@ -21,4 +21,4 @@ COPY --from=builder ./app/dist/apps/browse/ ./
 
 EXPOSE 3002
 
-CMD [ "yarn", "next", "start" ]
+CMD [ "yarn", "next", "start", "-p", "3002" ]

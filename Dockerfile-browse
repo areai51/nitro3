@@ -19,6 +19,6 @@ COPY ./package.json ./
 RUN yarn add next react react-dom
 COPY ./dist/apps/browse/ ./
 
-EXPOSE 3000
+EXPOSE 4201
 
 CMD [ "yarn", "next", "start" ]

@@ -27,8 +27,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "bd": "docker build -f Dockerfile-local -t nitro3 .",
-    "bd-home": "docker build -f apps/home/Dockerfile -t home .",
-    "bd-browse": "docker build -f apps/home/Dockerfile -t browse .",
+    "bd-home": "docker build -f Dockerfile-home -t home .",
+    "bd-browse": "docker build -f Dockerfile-browse -t browse .",
     "rd": "docker run --add-host localnode:$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}')  -p 80:80 nitro3"
   },
   "private": true,

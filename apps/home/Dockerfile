@@ -1,14 +1,14 @@
-######################################################################
+# ######################################################################
 FROM node:12-alpine as builder
-######################################################################
+# ######################################################################
 WORKDIR /app
 COPY . .
 COPY ./package.json ./
-RUN yarn
+RUN yarn --frozen-lockfile
 ARG NODE_OPTIONS="--max-old-space-size=1024"
 ENV NODE_OPTIONS $NODE_OPTIONS
 ENV NODE_ENV production
-RUN yarn nx build browse --prod
+RUN yarn nx build home --prod
 
 
 # ----------------
@@ -17,8 +17,8 @@ WORKDIR /app
 
 COPY ./package.json ./
 RUN yarn add next react react-dom
-COPY --from=builder ./app/dist/apps/browse/ ./
+COPY ./dist/apps/home/ ./
 
-EXPOSE 3002
+EXPOSE 3001
 
-CMD [ "yarn", "next", "start", "-p", "3002" ]
+CMD [ "yarn", "next", "start", "-p", "3001" ]

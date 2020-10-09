@@ -4,26 +4,26 @@ services:
   home:
     image: home
     build:
+      dockerfile: ./apps/home/Dockerfile
       context: .
-      dockerfile: Dockerfile-home
     environment:
       NODE_ENV: production
     ports:
-      - 4200:4200
+      - 3001:3001
 
   browse:
     image: browse
     build:
+      dockerfile: ./apps/browse/Dockerfile
       context: .
-      dockerfile: Dockerfile-browse
     environment:
       NODE_ENV: production
     ports:
-      - 4201:4201
+      - 3002:3002
 
   nginx:
     build:
-      context: ./nginx
-      dockerfile: Dockerfile-nginx
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 80:80

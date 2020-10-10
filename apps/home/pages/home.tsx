@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Grid from '@material-ui/core/Grid';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { HeroBanner, ProductCard } from '@nitro3/components';
+import { HeroBanner } from '@nitro3/components';
 import { Master as Layout } from '@nitro3/templates';
-import ProductMock from '../public/mocks/products-list.mock';
 
 const StyledPage = styled.div``;
 const useStyles = makeStyles((theme) => ({

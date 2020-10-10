@@ -1,3 +1,4 @@
+export * from './product-tile/product-tile';
 export * from './footer/footer';
 export * from './header/header';
 export * from './nav/nav';

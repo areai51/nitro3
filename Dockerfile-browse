@@ -21,4 +21,4 @@ COPY ./dist/apps/browse/ ./
 
 EXPOSE 4201
 
-CMD [ "yarn", "next", "start" ]
+CMD yarn start -p 4201

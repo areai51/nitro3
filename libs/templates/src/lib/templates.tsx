@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Header } from '@nitro3/components';
+import { Footer } from '@nitro3/components';
 
 const useStyles = makeStyles({
   container: {
@@ -40,7 +41,7 @@ export const Master = (props: MasterLayoutProps) => {
       <Header />
       <main className={classes.container}>{props.children}</main>
 
-      <footer className={classes.footer}>&copy; Copyright 2020 Nitro3</footer>
+       <Footer/>
     </div>
   );
 };
